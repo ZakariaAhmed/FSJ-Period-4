@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  if (typeof success !== 'undefined' && success.length > 0)
+    h4#success #{success}
+
+  if (typeof error !== 'undefined' && error.length > 0)
+    h4#error #{error}

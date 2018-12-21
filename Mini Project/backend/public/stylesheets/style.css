@@ -1,0 +1,39 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.form > p {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#logout-form {
+  display: inline;
+}
+
+#current-pos {
+  padding-bottom: 0; 
+  margin-bottom: 0;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+#success {
+  color: green;
+}
+
+#error {
+  color: red;
+}

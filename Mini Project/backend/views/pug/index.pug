@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1= title
+
+  //- Inline HTML such as <i> works too.
+  h2 Welcome, <i>#{user.userName}</i> ! 
+    form(id='logout-form' method='POST' action='/friend-finder/logout')
+      input(type='submit' value='Logout')
+
+  h3#current-pos Your current position
+  b Longitude
+  | : #{user.longitude}
+  br
+  b Latitude
+  | : #{user.latitude}
+
+  br
+  br
+  hr
+
+  if (typeof friends !== 'undefined' && friends.length > 0)
+    h3 Your friends (within a distance of #{user.distance / 1000} km)
+    each friend in friends
+      b User
+      | : #{friend.userName}
+      br
+
+      b Longitude
+      | : #{friend.longitude}
+      br
+
+      b Latitude
+      | : #{friend.latitude}
+      br
+      br
+    hr
+
+  a(href='/friend-finder/users') &bull; View All Users
+  br
+  a(href='/friend-finder/locationBlogs') &bull; View All Location Blogs
+  br
+  a(href='/friend-finder/addUser') &bull; Add User
+  br
+  a(href='/friend-finder/addLocationBlog') &bull; Add Location Blog

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title><%= title %></title>
+      <link rel='stylesheet' href='/friend-finder/stylesheets/style.css' />
+  </head>
+  <body>
+      <% if (typeof success !== 'undefined' && success.length > 0) { %>
+        <h4 id='success'><%= success %></h4>
+      <% } %>
+
+      <% if (typeof error !== 'undefined' && error.length > 0) { %>
+        <h4 id='error'><%= error %></h4>
+      <% } %>
+  </body>
+</html>

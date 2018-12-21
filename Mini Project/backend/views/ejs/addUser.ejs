@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/friend-finder/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <form class='form' method='POST' action='/friend-finder/addUser'>
+      <p>First Name:</p>
+      <input type='text' name='firstName' placeholder='Enter first name here...' value='Test' required>
+      <p>Last Name:</p>
+      <input type='text' name='lastName' placeholder='Enter last name here...' value='User' required>
+      <p>User Name:</p>
+      <input type='text' name='userName' placeholder='Enter user name here...' value='testUser' required>
+      <p>Password:</p>
+      <input type='password' name='password' placeholder='Enter password here...' value='test123' required>
+      <p>Email:</p>
+      <input type='email' name='email' placeholder='Enter email here...' value='test@live.dk' required>
+
+      <br><br>
+
+      <input type='submit' value='Add User'>
+    </form>
+
+    <%- include messages %>
+
+    <hr>
+
+    <a href='/friend-finder/users'>&bull; See All Users</a> <br>
+    <a href='/friend-finder/'>&bull; Go back...</a>
+  </body>
+</html>

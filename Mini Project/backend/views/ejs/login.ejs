@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/friend-finder/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <p>Enter your login credentials below.</p>
+
+    <form class='form' method='POST' action='/friend-finder/login'>
+      <p>User Name:</p>
+      <input type='text' name='userName' placeholder='Enter user name here...' value='Dewrano' required>
+      <p>Password:</p>
+      <input type='password' name='password' placeholder='Enter password here...' value='test123' required>
+      <p>Longitude:</p>
+      <input type='number' name='longitude' placeholder='Enter longitude here...' value='12.409005314111708' required>
+      <p>Latitude:</p>
+      <input type='number' name='latitude' placeholder='Enter latitude here...' value='55.7847898805561' required>
+      <p>Distance (in km):</p>
+      <input type='number' name='distance' placeholder='Enter distance here...' step='0.01' min='0' value='15' required>
+
+      <br><br>
+
+      <input type='submit' value='Login'>
+    </form>
+
+    <%- include messages %>
+    
+  </body>
+</html>

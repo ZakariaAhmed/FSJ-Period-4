@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  form(class='form' method='POST' action='/friend-finder/addLocationBlog')
+    p Info:
+    textarea(rows='4' cols='50' name='info' placeholder='Enter info here...' required) The greatest location blog!
+    p Longitude:
+    input(type='number' name='longitude' placeholder='Enter longitude here...' value='12.409005314111708' required)
+    p Latitude:
+    input(type='number' name='latitude' placeholder='Enter latitude here...' value='55.7847898805561' required)
+
+    br
+    br
+
+    input(type='submit' value='Add Location Blog')
+
+  include messages
+
+  hr
+
+  a(href='/friend-finder/locationBlogs') &bull; See All Location Blogs
+  br
+  a(href='/friend-finder/') &bull; Go back...

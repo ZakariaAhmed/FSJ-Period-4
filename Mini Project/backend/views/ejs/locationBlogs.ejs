@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/friend-finder/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <h3>List of All Location Blogs</h3>
+    
+    <table>
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Author</th>
+              <th>Info</th>
+              <th>Created</th>
+              <th>Last Updated</th>
+              <th>Likes</th>
+              <th>Position (lon, lat)</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% for (const locationBlog of locationBlogs) { %>
+            <tr>
+              <td><%= locationBlog._id %></td>
+              <td><%= locationBlog.author.userName %></td>
+              <td><%= locationBlog.info %></td>
+              <td><%= locationBlog.created.toLocaleString() %></td>
+              <td><%= locationBlog.lastUpdated.toLocaleString() %></td>
+              <td><%= locationBlog.likedBy.length %></td>
+              <td><%= locationBlog.pos.longitude %>, <%= locationBlog.pos.latitude %></td>
+              <% if (locationBlog.author.userName !== userName && !locationBlog.likedBy.find((user) => user.userName === userName)) { %>
+                <td>
+                  <form method='POST' action='/friend-finder/likeLocationBlog'>
+                      <input type='hidden' name='blog' value='<%= locationBlog._id %>'>
+                      <input type='hidden' name='author' value='<%= userName %>'>
+                      <input type='submit' value='Like'>
+                  </form>
+                </td>
+              <% } %>
+            </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <h3>Total Location Blogs: <%= locationBlogs.length %></h3>
+
+    <%- include messages %>
+
+    <hr>
+
+    <a href='/friend-finder/addLocationBlog'>&bull; Add Location Blog</a> <br>
+    <a href='/friend-finder/'>&bull; Go back...</a>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+
+  h3 List of All Users
+
+  table
+    thead
+      tr
+        th ID
+        th User Name
+        th First Name
+        th Last Name
+        th Email
+    tbody
+      each user in users
+        tr
+          td= user._id
+          td= user.userName
+          td= user.firstName
+          td= user.lastName
+          td= user.email
+
+  h3 Total Users: #{users.length}
+
+  hr
+
+  a(href='/friend-finder/addUser') &bull; Add User
+  br
+  a(href='/friend-finder/') &bull; Go back...

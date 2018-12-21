@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/friend-finder/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <h2>
+      Welcome, <i><%= user.userName %></i> !
+      <form id='logout-form' method='POST' action='/friend-finder/logout'>
+        <input type='submit' value='Logout'>
+      </form>
+    </h2>
+
+    <h3 id='current-pos'>Your current position</h3>
+    <b>Longitude</b>: <%= user.longitude %> <br> 
+    <b>Latitude</b>: <%= user.latitude %>
+
+    <br><br><hr>
+
+    <% if (typeof friends !== 'undefined' && friends.length > 0) { %>
+      <h3>Your friends (within a distance of <%= user.distance / 1000 %> km)</h3>
+      <% for (const friend of friends) { %>
+        <b>User</b>: <%= friend.userName %> <br>
+        <b>Longitude</b>: <%= friend.longitude %> <br>
+        <b>Latitude</b>: <%= friend.latitude %> <br>
+        <br>
+    <% } %>
+      <hr>
+    <% } %>
+
+    <a href='/friend-finder/users'>&bull; View All Users</a> <br>
+    <a href='/friend-finder/locationBlogs'>&bull; View All Location Blogs</a> <br>
+    <a href='/friend-finder/addUser'>&bull; Add User</a> <br>
+    <a href='/friend-finder/addLocationBlog'>&bull; Add Location Blog</a> <br>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+
+  h3 List of All Location Blogs
+
+  table
+    thead
+      tr
+        th ID
+        th Author
+        th Info
+        th Created
+        th Last Updated
+        th Likes
+        th Position (lon, lat)
+    tbody
+      each locationBlog in locationBlogs
+        tr
+          td= locationBlog._id
+          td= locationBlog.author.userName
+          td= locationBlog.info
+          td= locationBlog.created.toLocaleString()
+          td= locationBlog.lastUpdated.toLocaleString()
+          td= locationBlog.likedBy.length
+          td #{locationBlog.pos.longitude}, #{locationBlog.pos.latitude}
+          if (locationBlog.author.userName !== userName && !locationBlog.likedBy.find((user) => user.userName === userName))
+            td
+              form(method='POST' action='/friend-finder/likeLocationBlog')
+                input(type='hidden' name='blog' value=locationBlog._id)
+                input(type='hidden' name='author' value=userName)
+                input(type='submit' value='Like')
+
+  h3 Total Location Blogs: #{locationBlogs.length}
+
+  include messages
+
+  hr
+
+  a(href='/friend-finder/addLocationBlog') &bull; Add Location Blog
+  br
+  a(href='/friend-finder/') &bull; Go back...

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/friend-finder/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <form class='form' method='POST' action='/friend-finder/addLocationBlog'>
+      <p>Info:</p>
+      <textarea rows='4' cols='50' name='info' placeholder='Enter info here...' required>The greatest location blog!</textarea>
+      <p>Longitude:</p>
+      <input type='number' name='longitude' placeholder='Enter longitude here...' value='12.409005314111708' required>
+      <p>Latitude:</p>
+      <input type='number' name='latitude' placeholder='Enter latitude here...' value='55.7847898805561' required>
+
+      <br><br>
+
+      <input type='submit' value='Add Location Blog'>
+    </form>
+
+    <%- include messages %>
+
+    <hr>
+
+    <a href='/friend-finder/locationBlogs'>&bull; See All Location Blogs</a> <br>
+    <a href='/friend-finder/'>&bull; Go back...</a>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  p Enter your login credentials below.
+
+  form(class='form' method='POST' action='/friend-finder/login')
+    p User Name:
+    input(type='text' name='userName' placeholder='Enter user name here...' value='Dewrano' required)
+    p Password:
+    input(type='password' name='password' placeholder='Enter password here...' value='test123' required)
+    p Longitude:
+    input(type='number' name='longitude' placeholder='Enter longitude here...' value='12.409005314111708' required)
+    p Latitude:
+    input(type='number' name='latitude' placeholder='Enter latitude here...' value='55.7847898805561' required)
+    p Distance (in km):
+    input(type='number' name='distance' placeholder='Enter distance here...' step='0.01' min='0' value='15' required)
+
+    br
+    br
+
+    input(type='submit' value='Login')
+
+  include messages
